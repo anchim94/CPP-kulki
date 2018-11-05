@@ -1,0 +1,11 @@
+﻿################################################################################
+# Ten plik .gitignore został utworzony automatycznie przez Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ProjektVisualStudio2013/v15
+/ProjektCodeBlocks.cbp
+/README.md
+/ProjektVisualStudio2013.vcxproj.user
+/ProjektVisualStudio2013.vcxproj
+/ProjektVisualStudio2013.sln
+/ProjektVisualStudio2008.vcproj
