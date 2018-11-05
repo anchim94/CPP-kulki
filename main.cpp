@@ -177,8 +177,31 @@ void main()
 						rectangle(jt->x, jt->y, it->x, it->y);
 					}
 				}
+				int bix = init->first.ix;
+				int biy = init->first.iy;
+				for (int i = 0; i < 9; i++)
+				{
+					//std::cout << bix << "----" << biy << std::endl;
+					Box b(bix + (i % 3) - 1, biy + (i / 3) - 1);
+					if ((bix != b.ix) || (biy != b.iy)) {
+						//std::cout << b.ix << "-" << b.iy << std::endl;
+						for (LI::iterator KIT = index[b].begin(); KIT != index[b].end(); KIT++)
+						{
+							KIT++; if (KIT == init->second.end()) break;
+							it = *LIT;
+							jt = *KIT;
+							if (((((jt->x) - (it->x))*((jt->x) - (it->x))) + (((jt->y) - (it->y)) * ((jt->y) - (it->y)))) <= 100.0) {
+								k++;
+								it->color = 0.8;
+								jt->color = 0.8;
+								std::cout << "BOX" << jt->x << "--" << jt->y << "--" << it->x << "--" << it->y << std::endl;
+								rectangle(jt->x, jt->y, it->x, it->y);
+							}
+						}
+					}
+				}
+				wait();
 			}
-
 		}
 		std::cout << "---------------------------------------" << std::endl;
 		char buffer[10];
@@ -186,6 +209,7 @@ void main()
 		if (j != k) {
 			setcolor(0.9);
 			rectangle(40, 40, 460, 460);
+			wait();
 		}
 		outtextxy(380, 460, buffer);
 	}
